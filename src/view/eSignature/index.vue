@@ -9,7 +9,7 @@
         <cell title="是否在电子围栏范围内" :value="insideFence">
           <i slot="icon" v-if="insideFence === '否'" class='fa fa-exclamation fa-lg' style="color:red;margin-right:5px;"></i>
         </cell>
-        <datetime v-model="sign_date" :min-year="minYear" format="YYYY-MM-DD" :hour-list="hourList" 
+        <datetime v-model="sign_date" :min-year="minYear" :end-date="endDate" format="YYYY-MM-DD" :hour-list="hourList" 
             @on-change="timeChange" title="签收日期"></datetime>
       </group>
       <group title="电子回单" label-width="5.5em" label-margin-right="2em">
@@ -52,7 +52,7 @@
 
 
 <script>
-  import { Cell, Group, XInput, Datetime, XButton, PopupPicker, XDialog, TransferDomDirective as TransferDom  } from 'vux'
+  import { Cell, Group, XInput, Datetime, XButton, PopupPicker, XDialog, dateFormat, TransferDomDirective as TransferDom  } from 'vux'
   import axios from '../../api/axios'
   import * as types from '../../utils/constant'
   import BillCode from '../../components/billCode.vue'
@@ -112,6 +112,7 @@
         cargoUploadDoneNum: 0,
         sceneUploadDoneNum: 0,
         minYear: '',
+        endDate: dateFormat(new Date(), 'YYYY-MM-DD') ,
         disabled: false,
         abnormalComment: '' //签收异常 其他原因 备注信息
       }

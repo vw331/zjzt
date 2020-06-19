@@ -73,8 +73,8 @@ export default {
         let now = new Date();
         return {
             type: this.$route.params.type,
-            allow_time_start: dateFormat(now, 'YYYY-MM-DD HH:mm'), 
-            allow_time_end: dateFormat( new Date(new Date().setMonth(now.getMonth()+1)), 'YYYY-MM-DD HH:mm' ),
+            allow_time_start: dateFormat(now, 'YYYY-MM-DD'), 
+            allow_time_end: dateFormat( new Date(new Date().setMonth(now.getMonth()+1)), 'YYYY-MM-DD' ),
             warehouseList: [],
             driversList: [],
             showWarehousePopup: false,
