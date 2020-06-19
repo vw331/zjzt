@@ -1,0 +1,9 @@
+'use strict'
+const merge = require('webpack-merge')
+const prodEnv = require('./prod.env')
+
+module.exports = merge(prodEnv, {
+  NODE_ENV: '"production"',
+  API_SERVER: '""',
+  STATIC_SERVER: '"https://zt.12ya.net/zjzt/"'
+})
